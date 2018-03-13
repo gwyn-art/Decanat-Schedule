@@ -8,18 +8,19 @@ class windowSelectExcel():
         self.buttonInitFileDialog()
 
     def buttonInitFileDialog(self):
-        button = QPushButton('Вибрати', self.window)
+        button = QPushButton('Вибрати')
         button.setToolTip('Виберіть EXCEL файл')
         button.move(50,50)
         button.clicked.connect(lambda: self.openFileDialog())
+        self.layout.addWidget(button, 0, 0)
 
     def labelFileName(self): 
         if self.label:
             print(self.label)
             label = QLabel('Вибрано файл: ' + self.label)
             button = QPushButton('Зберегти до бази')
-            self.layout.addWidget(label, 0, 0)
-            self.layout.addWidget(button,0,1)
+            self.layout.addWidget(label, 1, 0)
+            self.layout.addWidget(button,1,1)
 
     def openFileDialog(self):    
             options = QFileDialog.Options()
